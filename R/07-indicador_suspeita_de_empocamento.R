@@ -1,7 +1,10 @@
 library(tidymodels)
 library(tidyverse)
 
-modelo <- read_rds("data/modelo.rds")
+# system("gcloud auth login")
+pins::board_register_gcloud(bucket = "ministerio_da_justica")
+
+modelo <- pins::pin_get("modelo_xgboost", board = "gcloud")
 ts_das_disponibilidades_liquidas_com_indicadores <- read_rds("data/ts_das_disponibilidades_liquidas_com_indicadores.rds")
 
 # base com scores
@@ -19,3 +22,4 @@ ts_das_disponibilidades_liquidas_com_indicadores_final <- ts_das_disponibilidade
 write_rds(ts_das_disponibilidades_liquidas_com_indicadores_final, "data/ts_das_disponibilidades_liquidas_com_indicadores_final.rds")
 write_rds(ts_das_disponibilidades_liquidas_com_indicadores_final, "apps/explorador_disponibilidade_liquidas_v3/ts_das_disponibilidades_liquidas_com_indicadores_final.rds")
 
+shiny::runApp("apps/explorador_disponibilidade_liquidas_v3/")
