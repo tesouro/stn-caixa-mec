@@ -8,7 +8,7 @@ library(shinydashboard)
 library(magrittr)
 library(shinyjs)
 library(shinycssloaders)
-ts_das_disponibilidades_liquidas_com_indicadores_final <- readRDS("ts_das_disponibilidades_liquidas_com_indicadores_final.rds") %>% filter(n > 300)
+ts_das_disponibilidades_liquidas_com_indicadores_final <- readRDS("ts_das_disponibilidades_liquidas_com_indicadores_final.rds")
 indicadores_disponiveis <- c(
   "integral_sobre_media_dos_gastos",
   "disponibilidade_estritamente_crescente",
@@ -22,7 +22,7 @@ indicadores_disponiveis <- c(
 ui <- fluidPage(
   useShinydashboard(),
   tags$script(src = "logneg.js"),
-  h1("Explorador de Disponibilidades Líquidas"),
+  h1("Explorador de Disponibilidades Líquidas - MEC"),
   tabsetPanel(
     tabPanel(
       "Painel principal",
