@@ -67,8 +67,7 @@ calcular_indices <- function(df) {
       ),
       valor_nominal = calc_indicador_valor_nominal(disponibilidade_liquida),
       valor_nominal_conservador = calc_indicador_valor_nominal_conservador(disponibilidade_liquida, pagamento_diario),
-      indicador_tempo = calc_indicador_tempo(disponibilidade_liquida),
-      meu_novo = meu_novo_indicador(disponibilidade_liquida)
+      indicador_tempo = calc_indicador_tempo(disponibilidade_liquida)
     )
 }
 
@@ -135,7 +134,6 @@ ts_das_disponibilidades_liquidas_com_indicadores <- ts_das_disponibilidades_liqu
     n = map_dbl(serie_temporal, nrow),
     indicadores = map(serie_temporal_random_crop, calcular_indices)
   ) %>% 
-  filter(n > 365) %>%
   select(id, NO_UG, NO_ORGAO, NO_FONTE_RECURSO, serie_temporal, serie_temporal_random_crop, indicadores) %>%
   unnest(indicadores) 
 

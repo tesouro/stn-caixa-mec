@@ -54,8 +54,6 @@ disponibilidades_liquidas_diarias <- saldos_diarios %>%
   )
 
 saveRDS(disponibilidades_liquidas_diarias, file = "data/disponibilidades_liquidas_diarias.rds")
-saveRDS(disponibilidades_liquidas_diarias, file = "apps/explorador_disponibilidades_liquidas_v2/disponibilidades_liquidas_diarias.rds")
-
 
 # disponibilidades líquidas diárias visão UG ------------------------------
 disponibilidades_liquidas_diarias_visao_ug <- disponibilidades_liquidas_diarias %>%
@@ -77,7 +75,6 @@ disponibilidades_liquidas_diarias_visao_ug <- disponibilidades_liquidas_diarias 
   )
 
 saveRDS(disponibilidades_liquidas_diarias_visao_ug, file = "data/disponibilidades_liquidas_diarias_visao_ug.rds")
-saveRDS(disponibilidades_liquidas_diarias_visao_ug, file = "apps/explorador_disponibilidades_liquidas_v2/disponibilidades_liquidas_diarias_visao_ug.rds")
 
 
 ##################
